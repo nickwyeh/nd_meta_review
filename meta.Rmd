@@ -20,10 +20,9 @@ library(ggplot2)
 library(car)
 library(psych)
 library(plyr)
-library(reshape)
 library(metafor)
 #may need to change directory
-setwd("") 
+#setwd("") 
 
 #load data 
 test = read.csv('ESOSF.csv', header = T, na.strings=c("","NA"))
@@ -83,100 +82,7 @@ amountvariancelevel1
 amountvariancelevel2
 amountvariancelevel3
 
-# Control comparison
 
-I2_1 <- (estimated.sampling.variance) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (compare$sigma2[1]) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (compare$sigma2[2]) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Retrieval type
-I2_1 <- (estimated.sampling.variance) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (retrievaltype$sigma2[1]) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (retrievaltype$sigma2[2]) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#stimulation timing
-
-I2_1 <- (estimated.sampling.variance) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (onoffmoderator$sigma2[1]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (onoffmoderator$sigma2[2]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Frequency 
-
-I2_1 <- (estimated.sampling.variance) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (freqmoderator$sigma2[1]) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (freqmoderator$sigma2[2]) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-# Hemisphere
-
-I2_1 <- (estimated.sampling.variance) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (hemimod$sigma2[1]) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (hemimod$sigma2[2]) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Cortical Region
-
-I2_1 <- (estimated.sampling.variance) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (moderatorpfcpcc$sigma2[1]) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (moderatorpfcpcc$sigma2[2]) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-# memory process stimulated
-
-I2_1 <- (estimated.sampling.variance) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (memorymod$sigma2[1]) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (memorymod$sigma2[2]) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Motor threshold intensity
-
-I2_1 <- (estimated.sampling.variance) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (motor$sigma2[1]) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (motor$sigma2[2]) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
 ```
 
 
@@ -312,7 +218,104 @@ plot(x,type = "o", pch =19)
 #dfb =dfbeta(overall)
 #hat = hatvalues(overall)
 ```
+ 
+```{r}
+# Control comparison
 
+I2_1 <- (estimated.sampling.variance) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (compare$sigma2[1]) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (compare$sigma2[2]) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+#Retrieval type
+I2_1 <- (estimated.sampling.variance) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (retrievaltype$sigma2[1]) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (retrievaltype$sigma2[2]) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+#stimulation timing
+
+I2_1 <- (estimated.sampling.variance) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (onoffmoderator$sigma2[1]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (onoffmoderator$sigma2[2]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+#Frequency 
+
+I2_1 <- (estimated.sampling.variance) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (freqmoderator$sigma2[1]) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (freqmoderator$sigma2[2]) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+# Hemisphere
+
+I2_1 <- (estimated.sampling.variance) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (hemimod$sigma2[1]) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (hemimod$sigma2[2]) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+#Cortical Region
+
+I2_1 <- (estimated.sampling.variance) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (moderatorpfcpcc$sigma2[1]) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (moderatorpfcpcc$sigma2[2]) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+# memory process stimulated
+
+I2_1 <- (estimated.sampling.variance) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (memorymod$sigma2[1]) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (memorymod$sigma2[2]) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+
+#Motor threshold intensity
+
+I2_1 <- (estimated.sampling.variance) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
+I2_2 <- (motor$sigma2[1]) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
+I2_3 <- (motor$sigma2[2]) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1 <- I2_1 * 100
+amountvariancelevel2 <- I2_2 * 100
+amountvariancelevel3 <- I2_3 * 100
+amountvariancelevel1
+amountvariancelevel2
+amountvariancelevel3
+```
+ 
 
 ```{r Standard error function}
 #can modidify for design preferences
