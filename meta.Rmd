@@ -420,6 +420,12 @@ theme(legend.title=element_blank())
 ```{r funnel plots}
 #Use funnel()
 # can add levels, xlab, shade, yaxis, pch, xlim, ylim, main,legend,refline, etc options to modify the funnel plot for desired design.
-funnel(overall, level=c(90, 95, 99), xlab = "Hedge's g",shade=c("white", "gray", "darkgray"),yaxis = 'seinv',pch = 20, xlim=c(-4.5,4.5),ylim =c(1,9), main = "",refline= -.06)
+funnel(overall, 
+       level=c(90, 95, 99), xlab = "Hedge's g",
+       shade=c("lightgrey", "cadetblue1", "lightblue"),
+       yaxis = 'seinv',pch = 1, xlim=c(-4.5,4.5),ylim =c(1,6), 
+       main = "",refline= -.06,
+       back = "white",
+       hlines = "lightgrey")
 ```
 
