@@ -1,0 +1,246 @@
+Study,effectsizeID,Author,Date,cohen.d,hedge,hedgeg.correction,Vd,Sampling.variance,SE,Frequency,Hemisphere,Control.comparison,Cortical.region,Memorystage,Retrieval,Simulation.timing,Intensity,MTI,notes
+1,1,Feurra ,2010,-0.49343,-0.476415172,0.965517241,0.18091,0.160100077,0.400125076,ten,L,a,PFC,enc,fam,on,above,110,Left ifg vs left OFA for context
+1,2,Feurra ,2010,-0.3816,-0.368441379,0.965517241,0.173113,0.1581996,0.397743133,ten,L,v,PFC,enc,fam,on,above,110,left ifg v vs vertex for contex
+1,3,Feurra ,2010,-0.36732,-0.354653793,0.965517241,0.173059,0.157991896,0.397481944,ten,L,b,PFC,enc,fam,on,above,110,left ifg vs no stim for context
+1,4,Feurra ,2010,0.01883,0.01818069,0.965517241,0.166674,0.155378365,0.394180624,ten,L,v,,enc,fam,on,above,110,left ofa vs vert context
+1,5,Feurra ,2010,0.067927,0.06558469,0.965517241,0.166761,0.15546109,0.394285544,ten,L,b,,enc,fam,on,above,110,left ofa vs no stim for context
+1,6,Feurra ,2010,-0.32877,-0.317433103,0.965517241,0.168857,0.157470736,0.396825825,ten,L,a,PFC,enc,fam,on,above,110,left ifg vs left OFA for non-context
+1,7,Feurra ,2010,-0.91819,-0.886528276,0.965517241,0.183815,0.171745163,0.41442148,ten,L,v,PFC,enc,fam,on,above,110,left ifg vs vertex for non-context
+1,8,Feurra ,2010,-1.14712,-1.107564138,0.965517241,0.193373,0.180927839,0.425356133,ten,L,b,PFC,enc,fam,on,above,110,left ifg vs no stim for non-context
+1,9,Feurra ,2010,-0.71971,-0.694892414,0.965517241,0.17689,0.165431441,0.406732641,ten,L,v,,enc,fam,on,above,110,left OFA vs vert for non-context
+1,10,Feurra ,2010,-0.96227,-0.929088276,0.965517241,0.184839,0.173355019,0.416359243,ten,L,b,,enc,fam,on,above,110,left ofa vs no stim for non-context
+2,11,Galli ,2017,0.357984737,0.34715269,0.965517241,0.169359929,0.157859493,0.397315357,twenty,L,v,PFC,enc,fam,on,below,90,Deep: DLPFC During Word vs Vertex
+2,12,Galli ,2017,0,0,0.965517241,0.166666667,0.155370591,0.394170763,twenty,L,b,PFC,enc,fam,on,below,90,Deep: DLPFC During Word vs none
+2,13,Galli ,2017,0.319680624,0.309555448,0.965517241,0.16880815,0.157355366,0.396680434,twenty,L,v,PFC,enc,fam,on,below,90,Deep: DLPFC at word vs vertex
+2,14,Galli ,2017,-0.040352608,-0.039006897,0.965517241,0.166700677,0.155402215,0.394210876,twenty,L,b,PFC,enc,fam,on,below,90,Deep: DLPFC at word vs none
+2,15,Galli ,2017,0.834641981,0.814512276,0.965517241,0.181493003,0.168900014,0.410974469,twenty,L,v,PFC,enc,fam,on,below,90,Deep: DLPFC 100 ms vs vertex
+2,16,Galli ,2017,0.321947612,0.321838759,0.965517241,0.168981481,0.157383616,0.396716039,twenty,L,b,PFC,enc,fam,on,below,90,Deep: DLPFC 100 ms vs none
+2,17,Galli ,2017,0.92104072,0.894654069,0.965517241,0.18455412,0.171846011,0.414543135,twenty,L,v,PFC,enc,fam,on,below,90,Deep: DLPFC 200ms vs vertex
+2,18,Galli ,2017,0.408024415,0.40452469,0.965517241,0.170323704,0.158603929,0.398251088,twenty,L,b,PFC,enc,fam,on,below,90,Deep: DLPFC 200ms vs none
+2,19,Galli ,2017,0.45184725,0.436300828,0.965517241,0.170920794,0.159335763,0.399168841,twenty,L,v,PFC,enc,fam,on,below,90,Deep: DLPFC 300ms vs vertex
+2,20,Galli ,2017,0.043380421,0.042285793,0.965517241,0.166706626,0.155407139,0.394217121,twenty,L,b,PFC,enc,fam,on,below,90,Deep: DLPFC 300ms vs none
+2,21,Galli ,2017,-0.174701456,-0.169757241,0.965517241,0.167310711,0.155963341,0.394921943,twenty,L,v,PFC,enc,fam,on,below,90,Deep: DLPFC 400ms vs vertex
+2,22,Galli ,2017,-0.467493045,-0.451408276,0.965517241,0.171220554,0.159615116,0.399518605,twenty,L,b,PFC,enc,fam,on,below,90,Deep: DLPFC 400ms vs none
+2,23,Galli ,2017,0.107324585,0.103757379,0.965517241,0.166907255,0.155594296,0.394454429,twenty,L,v,PFC,enc,fam,on,below,90,Deep: VLPFC During Word vs vertex
+2,24,Galli ,2017,-0.243428159,-0.235084138,0.965517241,0.167901701,0.156521445,0.395627913,twenty,L,b,PFC,enc,fam,on,below,90,Deep: VLPFC During Word vs none
+2,25,Galli ,2017,-0.036914516,-0.035646897,0.965517241,0.166695069,0.155397056,0.394204332,twenty,L,v,PFC,enc,fam,on,below,90,Deep: VLPFC At word vs vertex
+2,26,Galli ,2017,-0.394014052,-0.380442759,0.965517241,0.16990124,0.158385694,0.397977002,twenty,L,b,PFC,enc,fam,on,below,90,Deep: VLPFC at words vs none
+2,27,Galli ,2017,-0.156299827,-0.152851035,0.965517241,0.167188802,0.155845046,0.394772145,twenty,L,v,PFC,enc,fam,on,below,90,Deep: VLPFC 100ms vs vertex
+2,28,Galli ,2017,-0.458798676,-0.446764138,0.965517241,0.171127383,0.159458706,0.399322809,twenty,L,b,PFC,enc,fam,on,below,90,Deep: VLPFC 100ms vs none
+2,29,Galli ,2017,-0.346139173,-0.334464828,0.965517241,0.169166595,0.157697505,0.397111451,twenty,L,v,PFC,enc,fam,on,below,90,Deep: VLPFC 200ms vs vertex
+2,30,Galli ,2017,-0.713462894,-0.690528276,0.965517241,0.177322845,0.165256613,0.406517667,twenty,L,b,PFC,enc,fam,on,below,90,Deep: VLPFC 200ms vs none
+2,31,Galli ,2017,-0.131226915,-0.127670345,0.965517241,0.167030941,0.155705036,0.394594774,twenty,L,v,PFC,enc,fam,on,below,90,Deep: VLPFC 300ms vs vertex
+2,32,Galli ,2017,-0.448432298,-0.434868966,0.965517241,0.17089296,0.159276054,0.399094042,twenty,L,b,PFC,enc,fam,on,below,90,Deep: VLPFC 300ms vs none
+2,33,Galli ,2017,0.113564104,0.109648966,0.965517241,0.166935353,0.155621064,0.394488357,twenty,L,v,PFC,enc,fam,on,below,90,Deep: VLPFC 400ms vs vertex
+2,34,Galli ,2017,-0.256735515,-0.248022069,0.965517241,0.168041411,0.156650711,0.395791246,twenty,L,b,PFC,enc,fam,on,below,90,Deep: VLPFC 400ms vs none
+2,35,Galli ,2017,0.030678399,0.02963269,0.965517241,0.16668629,0.155388869,0.394193949,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: DLPFC During Word vs Vertex
+2,36,Galli ,2017,0.237077408,0.230152276,0.965517241,0.167850443,0.15646218,0.395553005,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: DLPFC During Word vs none
+2,37,Galli ,2017,-0.035928466,-0.035646897,0.965517241,0.166695069,0.155395661,0.394202563,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: DLPFC at word vs vertex
+2,38,Galli ,2017,0.207428798,0.201438759,0.965517241,0.167573495,0.156206226,0.395229334,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: DLPFC at word vs none
+2,39,Galli ,2017,0.245312205,0.24137931,0.965517241,0.16796875,0.156539329,0.395650513,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: DLPFC 100 ms vs vertex
+2,40,Galli ,2017,0.531724085,0.514497103,0.965517241,0.172582345,0.160861591,0.401075543,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: DLPFC 100 ms vs none
+2,41,Galli ,2017,0.27712582,0.271817241,0.965517241,0.168317839,0.156862123,0.396058232,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: DLPFC 200ms vs vertex
+2,42,Galli ,2017,0.563986772,0.545156138,0.965517241,0.173308382,0.161548146,0.401930524,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: DLPFC 200ms vs none
+2,43,Galli ,2017,0.129247251,0.125256552,0.965517241,0.167017288,0.155695021,0.394582084,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: DLPFC 300ms vs vertex
+2,44,Galli ,2017,0.364931776,0.352727586,0.965517241,0.169447134,0.157957029,0.397438082,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: DLPFC 300ms vs none
+2,45,Galli ,2017,0.071055692,0.070219172,0.965517241,0.16677686,0.155468647,0.394295127,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: DLPFC 400ms vs vertex
+2,46,Galli ,2017,0.330866973,0.320701379,0.965517241,0.168965151,0.1574967,0.396858539,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: DLPFC 400ms vs none
+2,47,Galli ,2017,0.11795321,0.113985103,0.965517241,0.166957023,0.155640799,0.394513369,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: VLPFC During Word vs vertex
+2,48,Galli ,2017,0.189089659,0.182570621,0.965517241,0.16741157,0.156064998,0.395050627,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: VLPFC During Word vs none
+2,49,Galli ,2017,0,0,0.965517241,0.166666667,0.155370591,0.394170763,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: VLPFC At word vs vertex
+2,50,Galli ,2017,0.060207741,0.058320138,0.965517241,0.166742677,0.155440992,0.394260057,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: VLPFC at words vs none
+2,51,Galli ,2017,0,0,0.965517241,0.166666667,0.155370591,0.394170763,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: VLPFC 100ms vs vertex
+2,52,Galli ,2017,0.051274769,0.050521655,0.965517241,0.166723708,0.155421651,0.394235528,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: VLPFC 100ms vs none
+2,53,Galli ,2017,-0.103805469,-0.101041379,0.965517241,0.166894831,0.155579867,0.394436137,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: VLPFC 200ms vs vertex
+2,54,Galli ,2017,-0.053591845,-0.052504828,0.965517241,0.166728276,0.15542637,0.394241513,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: VLPFC 200ms vs none
+2,55,Galli ,2017,0.201214299,0.194444552,0.965517241,0.167511614,0.156156906,0.395166934,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: VLPFC 300ms vs vertex
+2,56,Galli ,2017,0.276361809,0.266834207,0.965517241,0.168257851,0.156853911,0.396047864,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: VLPFC 300ms vs none
+2,57,Galli ,2017,-0.162854787,-0.159590345,0.965517241,0.167235845,0.155885677,0.394823602,twenty,L,v,PFC,enc,fam,on,below,90,Shallow: VLPFC 400ms vs vertex
+2,58,Galli ,2017,-0.117267208,-0.115862069,0.965517241,0.166966667,0.155370591,0.394170763,twenty,L,b,PFC,enc,fam,on,below,90,Shallow: VLPFC 400ms vs none
+3,59,Turriziani ,2008,-0.27673,-0.269753613,0.974789916,0.126192666,0.119913928,0.346285905,twenty,R,s,PFC,enc,rec,on,,,right dlpfc vs none for remember
+3,60,Turriziani ,2008,0.243013,0.236886622,0.974789916,0.125922,0.119653744,0.345910023,twenty,R,s,PFC,enc,fam,on,,,right dlpfc vs none know
+3,61,Turriziani ,2008,0.33587,0.327402689,0.974789916,0.126757,0.120451826,0.347061704,twenty,L,a,PFC,enc,rec,on,,, left DLPFC  vs right dlpfc remember
+3,62,Turriziani ,2008,-0.197673,-0.192689647,0.974789916,0.125608,0.119357088,0.345480952,twenty,L,a,PFC,enc,fam,on,,,left DLPFC  right dlpfc know
+3,63,Turriziani ,2008,0.098135,0.095661008,0.974789916,0.12515,0.118919928,0.344847688,twenty,L,s,PFC,enc,rec,on,,,left dlpfc vs none remember
+3,64,Turriziani ,2008,0.035002,0.034119597,0.974789916,0.125019,0.118795133,0.344666698,twenty,L,s,PFC,enc,fam,on,,,left dlpfc vs none know
+3,65,Turriziani ,2008,0.246078,0.239874353,0.974789916,0.125947,0.119676001,0.345942193,twenty,R,s,PFC,ret,rec,on,,,right dlpfc vs none remember
+3,66,Turriziani ,2008,-0.2346,-0.228685714,0.974789916,0.12573,0.119594086,0.345823779,twenty,R,s,PFC,ret,fam,on,,,right dlpfc vs none know
+3,67,Turriziani ,2008,0.078616,0.076634084,0.974789916,0.125097,0.118868705,0.344773412,twenty,R,a,PFC,ret,rec,on,,,right DLPFC vs left DLPFC remember
+3,68,Turriziani ,2008,-0.17548,-0.171056135,0.974789916,0.125418,0.119234134,0.345302959,twenty,R,a,PFC,ret,fam,on,,,right dlpfc vs left DLPFC know
+3,69,Turriziani ,2008,0.148588,0.144842084,0.974789916,0.125345,0.119104744,0.345115551,twenty,L,s,PFC,ret,rec,on,,,left dlpfc vs none remember
+3,70,Turriziani ,2008,-0.03146,-0.030666891,0.974789916,0.125015,0.118791638,0.344661628,twenty,L,s,PFC,ret,fam,on,,,left dlpfc vs none know
+4,71,Floel ,2003,-1.312512,-1.277038703,0.972972973,0.162045,0.153403048,0.391667011,twenty,L,a,PFC,enc,fam,on,below,90,left vs right PFC corrected rec for words
+4,72,Floel ,2003,-0.06197,-0.060295135,0.972972973,0.133393,0.126283341,0.355363674,twenty,R,s,PFC,enc,fam,on,below,90,right pfc vs none for words
+4,73,Floel ,2003,-1.43694,-1.398103784,0.972972973,0.164938,0.158800787,0.398498164,twenty,L,s,PFC,enc,fam,on,below,90,left pfc vs none words
+4,74,Floel ,2003,-0.61571,-0.599069189,0.972972973,0.139652,0.132204111,0.363598833,twenty,R,a,PFC,enc,fam,on,below,90,right pfc vs left pfc for pictures
+4,75,Floel ,2003,-1.0328,-1.004886486,0.972972973,0.151111,0.143052594,0.378222942,twenty,R,s,PFC,enc,fam,on,below,90,right pfc vs none for pictures
+4,76,Floel ,2003,-0.24697,-0.240295135,0.972972973,0.13435,0.127185106,0.356630209,twenty,L,s,PFC,enc,fam,on,below,90,left pfc vs non for picutres
+5,77,Sestieri ,2013,-0.40005,-0.389964706,0.974789916,0.127197,0.137349292,0.370606654,twenty,L,a,PC,ret,fam,on,at,100,left ang vs left spl d' item scores
+5,78,Sestieri ,2013,-0.21002,-0.204725378,0.974789916,0.125886,0.135397938,0.367964588,twenty,L,s,PC,ret,fam,on,at,100,left ang vs sham d' item memory
+5,79,Sestieri ,2013,0.153069,0.149210118,0.974789916,0.125221,0.135049882,0.367491337,twenty,L,s,PC,ret,fam,on,at,100,left spl vs sham d' item
+5,80,Sestieri ,2013,-0.03889,-0.03790958,0.974789916,0.12511,0.134680965,0.366989053,twenty,L,a,PC,ret,rec,on,at,100,left ang vs left spl d' source
+5,81,Sestieri ,2013,-0.095,-0.092605042,0.974789916,0.125123,0.134807416,0.367161295,twenty,L,s,PC,ret,rec,on,at,100,left ang vs sham d' source
+5,82,Sestieri ,2013,-0.06667,-0.064989244,0.974789916,0.125102,0.134730324,0.367056296,twenty,L,s,PC,ret,rec,on,at,100,left spl vs sham d' source
+6,83,Manenti ,2010b,-0.8865,-0.849042254,0.957746479,0.260494,0.201478964,0.448864082,ten,R,a,PFC,ret,rec,on,below,90,right dlpfc vs left dlpfc strategy users
+6,84,Manenti ,2010b,-1.0383,-0.994428169,0.957746479,0.25805,0.208179379,0.456266785,ten,R,s,PFC,ret,rec,on,below,90,right dlpfc vs none strat users
+6,85,Manenti ,2010b,-0.14176,-0.135770141,0.957746479,0.200907,0.183917854,0.428856449,ten,L,s,PFC,ret,rec,on,below,90,left dlpfc vs none
+6,86,Manenti ,2010b,-1.399681,-1.217113913,0.869565217,0.575625,0.470662403,0.686048397,ten,L,a,PFC,ret,rec,on,below,90,left dlpfc vs right dlpfc non-users
+6,87,Manenti ,2010b,0.103679,0.090155652,0.869565217,0.500977,0.378584001,0.615291801,ten,R,s,PFC,ret,rec,on,below,90,right dlpfc vs none non users
+6,88,Manenti ,2010b,-1.296,-1.126956522,0.869565217,0.57716,0.457453803,0.676353312,ten,L,s,PFC,ret,rec,on,below,90,left dlpfc vs non non users
+7,89,Blumenfeld ,2014,0.313428,0.304299029,0.970873786,0.144476,0.157279384,0.396584649,ctbs,L,v,PFC,enc,fam,off,below,80,DLPFC vs vert d' item
+7,90,Blumenfeld ,2014,-0.41605,-0.403932039,0.970873786,0.146205,0.147404534,0.383932981,ctbs,L,v,PFC,enc,fam,off,below,80,VLPFC vs vert
+7,91,Blumenfeld ,2014,0.233139,-0.232937414,0.967032967,0.173819,0.15087988,0.388432594,ctbs,L,a,PFC,enc,fam,off,below,80,vlpfc vs dlpfc
+8,92,Ryals ,2016,-0.01665,-0.01628,0.977777778,0.111174,0.106231873,0.325932314,ctbs,,v,PFC,enc,fam,off,below,80,frontopolar vs vert item hits
+8,93,Ryals ,2016,0.067340067,0.065843621,0.977777778,0.111174,0.106288406,0.326019027,ctbs,,a,PFC,enc,fam,off,below,80,frontopolar vs dlpfc hits items
+8,94,Ryals ,2016,0,0,0.977777778,0.111111,0.106228192,0.325926667,ctbs,,v,PFC,enc,fam,off,below,80,DLPFC vs vert item hits
+8,95,Ryals ,2016,0.196425064,0.192060062,0.977777778,0.111647,0.106740515,0.326711669,ctbs,,v,PFC,enc,rec,off,below,80,frontopolar vs vert asscoaitve mmory
+8,96,Ryals ,2016,0.145032632,0.141809685,0.977777778,0.111568,0.106507499,0.326354866,ctbs,,a,PFC,enc,rec,off,below,80,frontopolar vs dlpfc associative memory
+8,97,Ryals ,2016,0.042854082,0.041901769,0.977777778,0.111137,0.106252578,0.325964074,ctbs,,v,PFC,enc,rec,off,below,80,DLPFC vs vert associative memory
+9,98,Yazar ,2017,-0.076923077,-0.075604396,0.982857143,0.087021,0.084063329,0.289936768,ctbs,L,v,PC,ret,fam,off,below,70,ang vs vert hits
+9,99,Yazar ,2017,-0.333333333,-0.327619048,0.982857143,0.088164,0.085167882,0.291835367,ctbs,L,v,PC,ret,rec,off,below,70,ang vs vert source hits
+9,100,Yazar ,2017,0.137931035,0.135566503,0.982857143,0.094401,0.084200963,0.290174022,ctbs,L,v,PC,ret,rec,off,below,70,ang vs vert within modality source
+9,101,Yazar ,2017,-0.48,-0.471771429,0.982857143,0.089461,0.086420433,0.293973524,ctbs,L,v,PC,ret,rec,off,below,70,ang vs vert cross modality
+10,102,Thakral ,2017,-0.339711807,-0.331147643,0.974789916,0.126792,0.120490362,0.347117216,one,L,v,PC,ret,rec,off,,,left ang vs vert for internal details
+10,103,Thakral ,2017,0.350001808,0.341178233,0.974789916,0.126705,0.120595734,0.347268965,one,L,v,PC,ret,rec,off,,,left ang vs vert for external details
+11,104,Ye ,2018,0.246765578,0.241281899,0.977777778,0.111363,0.107036765,0.327164736,one,L,v,PC,ret,fam,off,at,110,PC vs vert for temporal order
+12,105,Rami ,2003,-0.554098361,-0.540129494,0.974789916,0.129797,0.123335379,0.351191371,five,L,b,PFC,enc,rec,on,below,90,ldpfc high vs basal
+12,106,Rami ,2003,-0.383252818,-0.373590982,0.974789916,0.127295,0.120957728,0.347789776,five,L,a,PFC,enc,rec,on,below,90,LDLPFC high vs cb high 
+12,107,Rami ,2003,0.324022346,0.315853716,0.974789916,0.12664,0.120335749,0.346894435,one,L,b,PFC,enc,rec,on,above,110,ldlpfc low vs baseline
+12,108,Rami ,2003,0.5,0.487394958,0.974789916,0.128906,0.122488723,0.349983889,one,L,a,PFC,enc,rec,on,above,110,ldlpfc low vs cb high
+12,109,Rami ,2003,0.117870722,0.114899192,0.974789916,0.125217,0.118983222,0.344939446,five,R,b,PFC,enc,rec,on,below,90,rdlpfc high vs baseline
+12,110,Rami ,2003,0.301675978,0.294070701,0.974789916,0.126422,0.120128155,0.346595089,five,R,a,PFC,enc,rec,on,below,90,rdlpfc high vs cb high
+13,111,Balconi ,2015,0.605852536,0.602505284,0.994475138,0.030321,0.029981666,0.173152148,five,L,a,PFC,ret,fam,on,at,100,ldlpfc vs vert for words
+13,112,Balconi ,2015,0.247622821,0.246254739,0.994475138,0.029209,0.028886108,0.169959136,five,L,s,PFC,ret,fam,on,at,100,dlflpc vs sham for words
+13,113,Balconi ,2015,0.435615961,0.433209243,0.994475138,0.029652,0.029346362,0.171307798,five,L,a,PFC,ret,fam,on,at,100,dlpfc vs vert for pics
+13,114,Balconi ,2015,0.664048419,0.660379643,0.994475138,0.030543,0.030246483,0.17391516,five,L,s,PFC,ret,fam,on,at,100,dlpfc vs sham for pics
+14,115,Hawco ,2013,-0.029606545,-0.029278797,0.988929889,0.057149,0.05589084,0.236412436,ten,L,v,PFC,enc,rec,on,at,100,DLPFC vs vert 
+15,116,Innocenti ,2010,-0.765550239,-0.748538012,0.977777778,0.119250933,0.114009781,0.337653344,ten,L,b,PFC,enc,fam,on,below,90,"d' left DLPFC deep, baseline deep"
+15,117,Innocenti ,2010,-0.746411483,-0.729824561,0.977777778,0.118849029,0.113625541,0.337083878,ten,L,a,PFC,enc,fam,on,below,90,"d' left DLPFC deep, right DLPFC deep"
+15,118,Innocenti ,2010,-0.72826087,-0.712077295,0.977777778,0.118477276,0.113270127,0.336556276,ten,L,v,PFC,enc,fam,on,below,90,"d' left DLPFC deep, vertex deep"
+15,119,Innocenti ,2010,-0.01980198,-0.019361936,0.977777778,0.111116557,0.106232916,0.325933913,ten,R,b,PFC,enc,fam,on,below,90,"d' right DLPFC deep, baseline deep"
+15,120,Innocenti ,2010,0.124293785,0.121531701,0.977777778,0.11132568,0.106432847,0.326240475,ten,R,v,PFC,enc,fam,on,below,90,"d' right DLPFC deep, vertex deep"
+15,121,Innocenti ,2010,0.267605634,0.261658842,0.977777778,0.112105733,0.107178617,0.327381455,ten,L,b,PFC,enc,fam,on,below,90,"d' left DLPFC shallow, baseline shallow"
+15,122,Innocenti ,2010,0.038961039,0.038095238,0.977777778,0.111132194,0.106247865,0.325956846,ten,L,a,PFC,enc,fam,on,below,90,"d' left DLPFC shallow, right DLPFC shallow"
+15,123,Innocenti ,2010,0.074534161,0.072877847,0.977777778,0.111188269,0.106301476,0.326039071,ten,L,v,PFC,enc,fam,on,below,90,"d' left DLPFC shallow, vertex shallow"
+15,124,Innocenti ,2010,0.4,0.391111111,0.977777778,0.113333333,0.108352263,0.32916905,ten,R,b,PFC,enc,fam,on,below,90,"d' right DLPFC shallow, baseline shallow"
+15,125,Innocenti ,2010,0.060606061,0.059259259,0.977777778,0.111162126,0.106276482,0.32600074,ten,R,v,PFC,enc,fam,on,below,90,"d' right DLPFC shallow, vertex shallow"
+16,126,Wais ,2011,0.037078235,0.036412159,0.982035928,0.090925,0.087688027,0.296121642,one,L,v,PFC,ret,fam,off,at,100,VLPFC vs vert 
+17,127,Demeter ,2016,0.555279397,0.541280756,0.974789916,0.131818,0.123354832,0.351219066,itbs,L,v,PFC,enc,fam,on,below,80,LDLPFC vs vert d' 
+18,128,Demeter ,2016,0.396471162,0.387105701,0.976377953,0.119961,0.114358745,0.338169699,itbs,L,v,PFC,enc,fam,on,below,80,LDLPFC vs vert d'
+19,129,Hawco ,2017,-0.833320668,-0.813635927,0.976377953,0.12942,0.121890433,0.349128104,ten,L,b,PFC,enc,rec,on,at,100,LDLPFC 10 hz 200 ms related pairs
+19,130,Hawco ,2017,-2.147044624,-2.096327034,0.976377953,0.175928,0.176781599,0.420454039,ten,L,b,PFC,enc,rec,on,at,100,LDLPFC 10 hz 600 ms related pairs
+19,131,Hawco ,2017,1.638892206,1.600178217,0.976377953,0.155263,0.149810652,0.38705381,ten,L,b,PFC,enc,rec,on,at,100,LDLPFC 10 hz 1000 ms related pairs
+19,132,Hawco ,2017,-0.277772591,-0.271211034,0.976377953,0.118848,0.11323675,0.336506686,ten,L,b,PFC,enc,rec,on,at,100,LDLPFC 10 hz 200 ms unrelated pairs
+19,133,Hawco ,2017,0.333333333,0.325459318,0.976377953,0.119692,0.113712757,0.337213221,ten,L,b,PFC,enc,rec,on,at,100,LDLPFC 10 hz 600 ms unrelated pairs
+19,134,Hawco ,2017,-0.027028883,-0.026390405,0.976377953,0.117657,0.11216529,0.334910868,ten,L,b,PFC,enc,rec,on,at,100,LDLPFC 10 hz 1000 ms unrelated pairs
+20,135,Hanslmayr ,2014,-0.224079258,-0.219378295,0.979020979,0.105939,0.101525895,0.318631284,,L,s,PFC,enc,rec,on,below,90,left IFG vs sham
+20,136,Hanslmayr ,2014,-0.281552293,-0.275645601,0.979020979,0.106315,0.10189239,0.319205874,,L,a,PFC,enc,rec,on,below,90,left IFG vs 10.7
+20,137,Hanslmayr ,2014,-0.187705667,-0.183767786,0.979020979,0.105806,0.101336998,0.318334726,,L,a,PFC,enc,rec,on,below,90,LEFT IFG vs 6.8
+20,138,Hanslmayr ,2014,0.064021129,0.062678029,0.979020979,0.105939,0.10094434,0.31771739,,L,s,PFC,enc,rec,on,below,90,10.7 vs sham
+20,139,Hanslmayr ,2014,-0.032010947,-0.031339389,0.979020979,0.105939,0.100905572,0.317656373,,L,s,PFC,enc,rec,on,below,90,6.8 vs sham
+21,140,Tambini ,2018,-0.042546757,-0.041782444,0.982035928,0.090944,0.087692799,0.296129699,ctbs,R,b,PC,enc,fam,off,below,80,item memory ppc vs baseline
+21,141,Tambini ,2018,0.20001312,0.19642007,0.982035928,0.091505,0.088111382,0.296835615,ctbs,R,a,PC,enc,fam,off,below,80,item memory pppc vs control TMS
+21,142,Tambini ,2018,1.970157269,1.934765222,0.982035928,0.135015,0.130211,0.360847613,ctbs,R,b,PC,enc,rec,off,below,80,associate memory PPC versus baseline
+21,143,Tambini ,2018,1.901637502,1.86747635,0.982035928,0.133382,0.127303606,0.356796309,ctbs,R,a,PC,enc,rec,off,below,80,associate memory PPC versus control TMS
+22,144,Waldhauser ,2016,-0.418540809,-0.411679484,0.983606557,0.085158,0.082389482,0.28703568,,,s,,ret,fam,on,,,item hits contra stim vs contra sham
+22,145,Waldhauser ,2016,0.014632569,0.014392691,0.983606557,0.083336,0.080626211,0.283947549,,,s,,ret,fam,on,,,item hits ipsi stim vs ipsi sham
+22,146,Waldhauser ,2016,-0.479895099,-0.472027966,0.983606557,0.085732,0.082945011,0.288001755,,,s,,ret,rec,on,,,source hits contra stim cs contra sham
+22,147,Waldhauser ,2016,-0.021562668,-0.021209182,0.983606557,0.083338,0.080628738,0.283952,,,s,,ret,rec,on,,,source hits ipsi stim vs ipsi sham
+23,148,Wang ,2014,0.581629,0.566966084,0.974789916,0.130286,0.123799609,0.351851686,twenty,L,s,PC,,rec,off,at,100, post-baseline for each condition subtracted
+24,149,Sandrini ,2013,1.305753859,1.305768536,0.957746479,0.23732,0.222556131,0.471758552,one,R,a,PFC,,rec,off,at,100, right dlpfc cue vs right dlpfc no cue
+24,150,Sandrini ,2013,2.147728523,2.147804444,0.957746479,0.288576,0.2892369,0.537807493,one,R,v,PFC,,rec,off,at,100, right dlpfc cue vs vertex
+25,151,Sandrini ,2013,0.150675407,0.150675859,0.957746479,0.200667,0.183977642,0.42892615,one,R,v,PFC,,rec,off,at,100,right dlpfc cue vs vertex. 1 hour delay.
+26,152,Berkers ,2017,-0.2077,-0.213191874,0.982035928,0.096376,0.092920945,0.30482937,ctbs,,b,PFC,enc,rec,off,below,80,mpfc vs no tms for free recall
+26,153,Berkers ,2017,-0.3793,-0.380980564,0.973913044,0.13257,0.125745165,0.354605647,ctbs,,v,PFC,enc,rec,off,below,80,mpfc vs vert for free recall
+26,154,Berkers ,2017,-0.0771,-0.08036948,0.982035928,0.095928,0.092513321,0.304160026,ctbs,,b,PFC,enc,fam,off,below,80,mpfc vs no stim for recognition
+26,155,Berkers ,2017,-0.6318,-0.634980693,0.973913044,0.132652,0.129650888,0.360070671,ctbs,,v,PFC,enc,fam,off,below,80,mpfc vs vert for recognition
+27,156,Yazar ,2014,-0.1534,-0.153392998,0.982857143,0.087212,0.084248283,0.290255548,ctbs,L,v,PC,ret,rec,off,below,70,left ang vs vert for free recall
+27,157,Yazar ,2014,-0.1811,-0.181071492,0.982857143,0.087313,0.084345574,0.290423095,ctbs,L,a,PC,ret,rec,off,below,70,left ang vs IPS free recall
+27,158,Yazar ,2014,0,0,0.982857143,0.086957,0.084001198,0.289829602,ctbs,L,v,PC,ret,rec,off,below,70,left IPS vs vert
+27,159,Yazar ,2014,-0.0523,-0.052342392,0.982857143,0.086986,0.084029919,0.289879146,ctbs,L,v,PC,ret,rec,off,below,70,left ang vs vert for cued
+27,160,Yazar ,2014,-0.0571,-0.057119548,0.982857143,0.086992,0.084035433,0.289888656,ctbs,L,a,PC,ret,rec,off,below,70,left ang vs IPS cued
+27,161,Yazar ,2014,0,0,0.982857143,0.086957,0.084001198,0.289829602,ctbs,L,v,PC,ret,rec,off,below,70,left IPS vs vertex cued
+27,162,Yazar ,2014,0.2262,0.226254059,0.982857143,0.087513,0.084538454,0.290754972,ctbs,L,v,PC,ret,fam,off,below,70,left ang vs vert for d'
+27,163,Yazar ,2014,0.1849,0.184900065,0.982857143,0.08697,0.084360177,0.290448235,ctbs,L,a,PC,ret,fam,off,below,70,left ang vs IPS d'
+27,164,Yazar ,2014,0.0357,0.035708593,0.982857143,0.08697,0.084014581,0.289852688,ctbs,L,v,PC,ret,fam,off,below,70,left IPS vs vert d'
+27,165,Yazar ,2014,-0.2945,-0.29448407,0.982857143,0.087899,0.084911879,0.291396429,ctbs,L,v,PC,ret,rec,off,below,70,left ang vs vert for source
+27,166,Yazar ,2014,-0.1378,-0.137849103,0.982857143,0.087163,0.084200584,0.290173369,ctbs,L,a,PC,ret,rec,off,below,70,left ang vs IPS source
+27,167,Yazar ,2014,-0.1534,-0.153392998,0.982857143,0.087212,0.084248283,0.290255548,ctbs,L,v,PC,ret,rec,off,below,70,left IPS vs vert source
+28,168,Bonni ,2015,-1.643335049,-1.643308843,0.957746479,0.258446,0.245386369,0.495364885,ctbs,,v,PC,ret,rec,off,at,100,PC vs vert (CZ) hits
+28,169,Bonni ,2015,-1.788795518,-1.788818722,0.957746479,0.266765,0.256834988,0.506788899,ctbs,,a,PC,ret,rec,off,at,100,PC vs PPC hits
+28,170,Bonni ,2015,0,0,0.957746479,0.2,0.183457013,0.428318821,ctbs,L,v,PC,ret,rec,off,at,100,PPC vs vert hits
+28,171,Bonni ,2015,0.043133583,0.043133583,0.957746479,0.200046513,0.183499678,0.428368624,ctbs,,v,PC,ret,fam,off,at,100,PC vs vert (CZ) source errors
+28,172,Bonni ,2015,-0.353882156,-0.353881905,0.957746479,0.203130815,0.186328862,0.43165827,ctbs,,a,PC,ret,fam,off,at,100,PC vs PPC source errors
+28,173,Bonni ,2015,0.402151514,0.402151229,0.957746479,0.204043146,0.18716573,0.432626548,ctbs,L,v,PC,ret,fam,off,at,100,PPC vs vert source errors
+29,174,Nilakantan ,2017,1.409930937,1.374386459,0.974789916,0.127494,0.193979451,0.440430983,twenty,L,v,PC,,rec,off,at,100,PPC vs sham
+30,175,Rossi ,2011,0.899224806,0.874921433,0.972972973,0.146803,0.138980797,0.372801283,twenty,L,s,PFC,enc,fam,on,below,90,LDLPFC vs sham 100 delay d'
+30,176,Rossi ,2011,0.909090909,0.884520885,0.972972973,0.147105,0.13926229,0.37317863,twenty,L,s,PFC,enc,fam,on,below,90,LDLPFC vs sham 200 delay d'
+30,177,Rossi ,2011,0.22818792,0.222020678,0.972972973,0.1342,0.127044298,0.356432739,twenty,L,s,PFC,enc,fam,on,below,90,LDLPFC vs sham 300 delay d'
+30,178,Rossi ,2011,0.2875,0.27972973,0.972972973,0.134711,0.127526887,0.357109069,twenty,L,s,PFC,enc,fam,on,below,90,LDLPFC vs sham 400 delay d'
+30,179,Rossi ,2011,-0.986111111,-0.95945946,0.972972973,0.149537,0.141565363,0.376251729,twenty,L,s,PFC,enc,fam,on,below,90,LDLPFC vs sham 500 delay d'
+31,180,Rossi ,2011,0.411214953,0.398229218,0.968421053,0.157098,0.147332395,0.383839022,twenty,R,v,PFC,enc,fam,on,below,90,RDLPFC vs vertex 100 d'
+31,181,Rossi ,2011,-0.125874126,-0.121899154,0.968421053,0.154151,0.144568418,0.380221538,twenty,R,v,PFC,enc,fam,on,below,90,RDLPFC vs vertex 300 d'
+31,182,Rossi ,2011,-0.283333333,-0.274385965,0.968421053,0.15539,0.145730497,0.38174664,twenty,R,v,PFC,enc,fam,on,below,90,RDLPFC vs vertex 500 d'
+32,183,Rossi ,2001,-0.55483871,-0.537317487,0.968421053,0.159766,0.149834766,0.38708496,twenty,R,s,PFC,enc,fam,on,below,90,righ t enc vs sham
+32,184,Rossi ,2001,-0.515337423,-0.49906361,0.968421053,0.158953,0.149072352,0.386098889,twenty,R,b,PFC,enc,fam,on,below,90,r enc vs baseline
+32,185,Rossi ,2001,-1.227272727,-1.188516746,0.968421053,0.182812,0.171447449,0.414062132,twenty,L,s,PFC,enc,fam,on,below,90,L enc vs sham
+32,186,Rossi ,2001,-1.163043478,-1.126315789,0.968421053,0.179859,0.168678517,0.410704902,twenty,L,b,PFC,enc,fam,on,below,90,L enc vs baseline
+32,187,Rossi ,2001,-1.708609272,-1.654653189,0.968421053,0.209987,0.196934031,0.443772499,twenty,R,s,PFC,ret,fam,on,below,90,right ret vs sham
+32,188,Rossi ,2001,-1.610062893,-1.559218802,0.968421053,0.203698,0.191035699,0.437076308,twenty,R,b,PFC,ret,fam,on,below,90,right ret vs baseline
+32,189,Rossi ,2001,-0.617283951,-0.597790773,0.968421053,0.161174,0.151154835,0.388786361,twenty,L,s,PFC,ret,fam,on,below,90,left ret vs sham
+32,190,Rossi ,2001,-0.576470588,-0.558266254,0.968421053,0.160237,0.150276133,0.387654657,twenty,L,b,PFC,ret,fam,on,below,90,left ret vs baseline
+33,191,Rossi ,2004,-0.604651163,-0.594738849,0.983606557,0.087142,0.084308602,0.290359437,twenty,R,s,PFC,enc,fam,on,below,90,right enc vs sham
+33,192,Rossi ,2004,-0.046511628,-0.045749142,0.983606557,0.083356,0.080645855,0.283982138,twenty,R,b,PFC,enc,fam,on,below,90,right enc vs baseline
+33,193,Rossi ,2004,-1.227272727,-1.207153502,0.983606557,0.099023,0.09580353,0.309521453,twenty,L,s,PFC,enc,fam,on,below,90,left enc vs sham
+33,194,Rossi ,2004,-0.681818182,-0.670640835,0.983606557,0.088176,0.085309076,0.292077175,twenty,L,b,PFC,enc,fam,on,below,90,left enc vs baseline
+33,195,Rossi ,2004,-1.488372093,-1.463972551,0.983606557,0.106409,0.102949372,0.320857245,twenty,R,s,PFC,ret,fam,on,below,90,right ret vs sham
+33,196,Rossi ,2004,-0.930232558,-0.914982844,0.983606557,0.092347,0.08934488,0.29890614,twenty,R,b,PFC,ret,fam,on,below,90,right ret vs baseline
+33,197,Rossi ,2004,-0.612244898,-0.602208096,0.983606557,0.087238,0.084401731,0.29051976,twenty,L,s,PFC,ret,fam,on,below,90,left ret vs sham
+33,198,Rossi ,2004,-0.12244898,-0.120441619,0.983606557,0.08349,0.08077516,0.284209711,twenty,L,b,PFC,ret,fam,on,below,90,left ret vs sbaseline
+34,199,Rossi ,2006,-0.454545455,-0.435339309,0.957746479,0.205165,0.188195055,0.43381454,twenty,R,s,PC,enc,fam,on,below,90,right enc vs sham
+34,200,Rossi ,2006,-0.264150943,-0.252989636,0.957746479,0.201744,0.185057118,0.430182657,twenty,R,b,PC,enc,fam,on,below,90,right enc vs base
+34,201,Rossi ,2006,-0.347826087,-0.33312921,0.957746479,0.203025,0.18623141,0.431545374,twenty,L,s,PC,enc,fam,on,below,90,left enc vs sham
+34,202,Rossi ,2006,-0.181818182,-0.174135723,0.957746479,0.200826,0.184215099,0.429202865,twenty,L,b,PC,enc,fam,on,below,90,left enc vs baseline
+34,203,Rossi ,2006,-0.204081633,-0.195458465,0.957746479,0.201041,0.18441212,0.429432323,twenty,R,s,PC,ret,fam,on,below,90,right ret vs sham
+34,204,Rossi ,2006,-0.068965517,-0.066051481,0.957746479,0.200119,0.183566083,0.428446126,twenty,R,b,PC,ret,fam,on,below,90,right ret vs baseline
+34,205,Rossi ,2006,-0.367346939,-0.351825237,0.957746479,0.203374,0.18655156,0.43191615,twenty,L,s,PC,ret,fam,on,below,90,left ret vs sham
+34,206,Rossi ,2006,-0.206896552,-0.198154444,0.957746479,0.20107,0.184438649,0.429463211,twenty,L,b,PC,ret,fam,on,below,90,left ret vs baseline
+34,207,Rossi ,2006,-0.697674419,-0.668195218,0.957746479,0.212169,0.194619216,0.441156679,twenty,R,s,PC,enc,fam,on,above,120,right enc vs sham
+34,208,Rossi ,2006,-0.952380952,-0.912139504,0.957746479,0.222676,0.204257127,0.451948147,twenty,R,b,PC,enc,fam,on,above,120,right enc vs base
+34,209,Rossi ,2006,-0.808510638,-0.774348217,0.957746479,0.216342,0.198447502,0.445474468,twenty,L,s,PC,enc,fam,on,above,120,left enc vs sham
+34,210,Rossi ,2006,-1.043478261,-0.99938763,0.957746479,0.227221,0.208426587,0.456537607,twenty,L,b,PC,enc,fam,on,above,120,left enc vs baseline
+34,211,Rossi ,2006,-0.203389831,-0.194795894,0.957746479,0.201034,0.184405656,0.429424796,twenty,R,s,PC,ret,fam,on,above,120,right ret vs sham
+34,212,Rossi ,2006,-0.379310345,-0.363283147,0.957746479,0.203597,0.186756403,0.432153217,twenty,R,b,PC,ret,fam,on,above,120,right ret vs baseline
+34,213,Rossi ,2006,-0.588235294,-0.563380282,0.957746479,0.210467,0.191392004,0.437483719,twenty,L,s,PC,ret,fam,on,above,120,left ret vs sham
+34,214,Rossi ,2006,-0.909090909,-0.870678617,0.957746479,0.223508,0.202409183,0.449899081,twenty,L,b,PC,ret,fam,on,above,120,left ret vs baseline
+35,215,Kholer ,2004,0.496,0.478896552,0.965517241,0.171794,0.160149462,0.400186784,,L,b,PFC,enc,fam,on,at,100,left pfc stim vs no stim
+35,216,Kholer ,2004,0.367170626,0.35450957,0.965517241,0.169466,0.157989765,0.397479264,,L,a,PFC,enc,fam,on,at,100,left pfc stim vs right ipfc stim
+35,217,Kholer ,2004,0.307254623,0.296659636,0.965517241,0.168579,0.157204967,0.396490816,,L,a,PFC,enc,fam,on,at,100,left pfc stim vs left PC stim
+35,218,Kholer ,2004,-0.373312153,-0.36043932,0.965517241,0.169525,0.158078088,0.397590352,,R,b,PFC,enc,fam,on,at,100,right PFC stim vs no stim
+35,219,Kholer ,2004,-0.115350488,-0.111372885,0.965517241,0.166931,0.155629895,0.39449955,,R,a,PFC,enc,fam,on,at,100,right PFC stim vs LPC stim
+35,220,Kholer ,2004,-0.19895288,-0.192092436,0.965517241,0.167511,0.156140223,0.395145824,,L,b,PC,enc,fam,on,at,100,left PC vs no stim
+36,221,Bonnici ,2018,0.076981132,0.075598237,0.982035928,0.090974,0.087737905,0.296205849,ctbs,L,v,PC,ret,rec,off,below,70,"left ang vs vert free recall ""words recalled"""
+36,222,Bonnici ,2018,-0.029191768,-0.028667365,0.982035928,0.090916,0.087682299,0.296111971,ctbs,L,v,PC,ret,rec,off,below,70,"left ang vs vert cued recall ""words recalled"" "
+36,223,Bonnici ,2018,-0.543151448,-0.533394236,0.982035928,0.09425,0.090906048,0.301506299,ctbs,L,v,PC,ret,rec,off,below,70,"left ang vs vert free recall internal ""details recalled"""
+36,224,Bonnici ,2018,0.036262204,0.035610787,0.982035928,0.090923,0.087687371,0.296120534,ctbs,L,v,PC,ret,rec,off,below,70,left ang vs vert free recall external details
+36,225,Bonnici ,2018,-0.082786542,-0.081299359,0.982035928,0.090993,0.08774807,0.296223007,ctbs,L,v,PC,ret,rec,off,below,70,"left ang vs vert cued recall internal details ""details recalled"""
+36,226,Bonnici ,2018,0.336594912,0.330548297,0.982035928,0.092207,0.088914586,0.298185489,ctbs,L,v,PC,ret,rec,off,below,70,left ang vs vert cued recall external details
+37,227,Turriziani ,2012,-0.962305987,-0.943187325,0.98013245,0.11152,0.107185455,0.327391899,one,L,s,PFC,ret,fam,off,below,90,left pfc vs sham recognition exp 1 non verbal
+37,228,Turriziani ,2012,3.402805611,3.335200202,0.98013245,0.245038,0.235109291,0.484880698,one,R,s,PFC,ret,fam,off,below,90,right pfc vs sham recognition exp 1
+38,229,Turriziani ,2012,-0.64344942,-0.630665656,0.98013245,0.105171,0.101037197,0.317863487,one,L,s,PFC,ret,fam,off,below,90,left pfc vs sham recognition exp 2
+38,230,Turriziani ,2012,4.106918239,4.025323837,0.98013245,0.309933,0.298604869,0.546447499,one,R,s,PFC,ret,fam,off,below,90,right pfc vs sham recgon exp 2
+39,231,Turriziani ,2012,-4.30669,-4.306620828,0.957746479,0.663689,0.608792436,0.780251521,itbs,R,a,PFC,ret,fam,off,below,80,left vs right iTBS stim exp 3
+39,232,Turriziani ,2012,0.316037736,0.302684029,0.957746479,0.202477,0.18574747,0.430984304,itbs,L,s,PFC,ret,fam,off,below,80,left vs sham itbs exp 3
+39,233,Turriziani ,2012,-4.878873239,-4.672723666,0.957746479,0.797178,0.729319688,0.854002159,itbs,R,s,PFC,ret,fam,off,below,80,right dlpfc vs sham exp 3
+40,234,Marin ,2018,-0.111111111,-0.107874865,0.970873786,0.143078,0.13486331,0.367237403,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs baseline associative memory (active)
+40,235,Marin ,2018,0.303030303,0.294204178,0.970873786,0.144497,0.136201141,0.369054387,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs baseline associative memory passive
+40,236,Marin ,2018,-0.088888889,-0.086299892,0.970873786,0.142998,0.134788501,0.367135535,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs baseline recall active
+40,237,Marin ,2018,-0.136363636,-0.13239188,0.970873786,0.173886,0.134968499,0.367380591,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs baseline recall passive
+40,238,Marin ,2018,-1.047486,-1.038542543,0.970873786,0.151882,0.153123964,0.391310573,ctbs,R,s,PFC,enc,rec,off,below,80,"right dlpfc vs sham assocaitive memory (active; stim post-pre vs post-pre sham), error bars = SEM"
+40,239,Marin ,2018,-0.147275,-0.05808155,0.970873786,0.144406,0.135020592,0.367451482,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs sham associative memory passive stim post-pre vs post-pre sham
+40,240,Marin ,2018,-0.772337203,-0.766572608,0.970873786,0.151776,0.14469584,0.380389063,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs sham recall active stim post-pre vs post-pre sham
+40,241,Marin ,2018,-0.371229698,-0.398014876,0.970873786,0.145318,0.136975143,0.37010153,ctbs,R,s,PFC,enc,rec,off,below,80,right dlpfc vs sham recall passive stim post-pre vs post-pre sham
+41,242,Koen ,2018,0,0,0.98013245,0.145318,0.094258856,0.307016051,ten,L,v,PC,enc,rec,on,below,90,Recollection AG vs vert
+41,243,Koen ,2018,-0.099378882,-0.097404467,0.98013245,0.145318,0.09437522,0.307205502,ten,L,v,PC,enc,fam,on,below,90,Familiarity AG vs vert
+42,244,Martin-Trias ,2018,-1.445702538,-1.418425132,0.981132076,0.145318,0.113223466,0.336486948,twenty,L,v,PFC,enc,fam,on,below,90,Figure 3 Day 2 L-DLPFC vs Vertex
+42,245,Martin-Trias ,2018,-0.24101665,-0.236469166,0.981132076,0.145318,0.090422173,0.300702798,twenty,L,v,PFC,enc,fam,on,below,90,Figure 3 Day 3 L-DLPFC vs Vertex

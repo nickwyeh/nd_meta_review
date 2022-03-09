@@ -1,0 +1,25 @@
+Levels,risk,Score,,,,,,,,,,,,
+Control type,low,0.476923077,,,,,,,,,Levels,low,medium,high
+Control type,medium,0.461538462,,,,,,,,,ControlCondition,0.476923077,0.461538462,0.061538462
+Control type,high,0.061538462,,,,,,,,,RandomAllocation,0.461538462,0.507692308,0.030769231
+Random allocation,low,0.461538462,,,,,,,,,BlindingofParticipants,0.153846154,0.830769231,0.015384615
+Random allocation,medium,0.507692308,,,,,,,,,BlindingofExperimenter,0.092307692,0,0.907692308
+Random allocation,high,0.030769231,,,,,,,,,BlindingofOutcome,0.846153846,0.138461538,0.015384615
+Blinding of participants,low,0.153846154,,,,,,,,,Attrition ,0.938461538,0.061538462,0
+Blinding of participants,medium,0.830769231,,,,,,,,,SelectiveReporting,0.830769231,0.153846154,0.015384615
+Blinding of participants,high,0.015384615,,,,,,,,,Target,0.507692308,0.4,0.092307692
+Blinding of experimenter,low,0.092307692,,,,,,,,,,,,
+Blinding of experimenter,medium,0,,,,,,,,,,,,
+Blinding of experimenter,high,0.907692308,,,,,,,,,,,,
+Blinding of outcome asssesment,low,0.846153846,,,,,,,,,,,,
+Blinding of outcome asssesment,medium,0.138461538,,,,,,,,,,,,
+Blinding of outcome asssesment,high,0.015384615,,,,,,,,,,,,
+Attrition ,low,0.938461538,,,,,,,,,,,,
+Attrition ,medium,0.061538462,,,,,,,,,,,,
+Attrition ,high,0,,,,,,,,,,,,
+Selective reporting,low,0.830769231,,,,,,,,,,,,
+Selective reporting,medium,0.153846154,,,,,,,,,,,,
+Selective reporting,high,0.015384615,,,,,,,,,,,,
+rTMS targetting,low,0.507692308,,,,,,,,,,,,
+rTMS targetting,medium,0.4,,,,,,,,,,,,
+rTMS targetting,high,0.092307692,,,,,,,,,,,,
