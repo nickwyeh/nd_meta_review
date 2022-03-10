@@ -319,6 +319,7 @@ amountvariancelevel3
 
 ```{r Standard error function}
 #can modidify for design preferences
+library(extrafont)
 
 summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=TRUE,
                       conf.interval=.95, .drop=TRUE) 
@@ -341,17 +342,17 @@ pres_theme <- theme(
   panel.grid.major.y  = element_line() ,             #   suppress the vertical grid lines
   panel.grid.major.x  = element_blank() ,            #   suppress the minor grid lines
   panel.grid.minor    = element_blank() ,            #   add axes
-  axis.text           = element_text( size=10, family="Times ", colour='black'),   #   tick labels' size, font & color. 
+  axis.text           = element_text( size=12, family="Times", colour='black'),   #   tick labels' size, font & color. 
   axis.line.x         = element_line( size=.8),   #   adjust the axis ticks
   axis.line.y         = element_line( size=.8),
   axis.ticks          = element_line( size=.8, colour='black'),   #   axis colors and thickness 
   axis.title.y        = element_text( angle=90, vjust= 1.5, hjust=.47,    
-                                      size=20, family="Times "),  
+                                      size=20, family="Times"),  
   axis.title.x        = element_text( vjust=-.5, hjust = .505,                    
                                       size=20, family="Times "),                   
-  plot.title = element_text (size=20, family="Times ", colour='black', face = 'bold'),
-  legend.text = element_text(size=16, family="Times "),
-  legend.title = element_text(size=20, family="Times ", face = 'bold')
+  plot.title = element_text (size=20, family="Times", colour='black', face = 'bold'),
+  legend.text = element_text(size=16, family="Times"),
+  legend.title = element_text(size=14, family="Times", face = 'bold')
   )
 ```
 
@@ -372,28 +373,19 @@ options(stringsAsFactors = FALSE)
 N = dat$N
 dat$beta <- as.numeric(as.character(dat$hedge))
 
-k=ggplot(data=dat,aes(x=dat$beta,y=dat$cite))+
-  geom_point(aes(size = N), color="lightblue3",shape=19)+
-  #geom_errorbarh(aes(xmin=lower95,xmax=upper95),height=0.667)+
-  #geom_vline(xintercept=0,linetype="dashed")+
+es_plot=ggplot(data=dat,aes(x=beta,y=cite))+
+  geom_point(aes(size = as.factor(N)),color="lightblue3",shape=19,alpha = .5)+
   geom_vline(xintercept=esmean,linetype="dashed")+
-  scale_x_continuous("Hedge's g", breaks=c(-5,-4,-3,-2,-1,0,1,2,3,4,5), expand = c(0, 0),limits = c(-5,5))+
-  #scale_size_continuous(breaks=c(5000,10000,15000))+
-  geom_text(aes(x=6,label=""),size=4)+
-   scale_shape(guide = "legend")+
- 
-  xlab ("Hedge's g") +
-  ylab("")+
- ggtitle ("\n")+
+  scale_x_continuous("Effect size\n", breaks=c(-4,-3,-2,-1,0,1,2,3,4), expand = c(0, 0),limits = c(-4.5,4.5))+
+  scale_size_manual(labels = c("10-19","20-29","30-39","40-49","50-59","60-69"),values =c(3,4,5,6,7,8))+
+  ylab("Study\n")+
+  ggtitle ("\n")+
+  theme(legend.position="bottom") +
+  pres_theme+
+  labs(size = "Sample size")
+es_plot
 
-  
-     theme(legend.position="bottom", legend.box = "horizontal") +
-  pres_theme
-
-k+
-  theme(legend.title=element_blank()) + 
-  labs(size = "N")
-
+                   
 ```
 
 
@@ -402,29 +394,39 @@ test = read.csv('Quality.csv', header = T, na.strings=c("","NA"))
 
 
 test$risk <- factor(test$risk, levels = c("high", 
-    "medium", "low"))
+                                          "medium", "low"))
 
-QA = ggplot(data = test, aes(x = test$Levels, y = test$Score, fill = test$risk)) 
-      QA + coord_flip() + geom_bar(stat="identity") +
-      scale_fill_manual(values = c("high"="red2","medium"="yellow2","low" = "chartreuse3"),
+QA = ggplot(data = test, aes(x = Levels, y = Score, fill = risk))+ 
+  coord_flip() + 
+  geom_bar(stat="identity") +
+  scale_fill_manual(values = c("high"="red2","medium"="yellow2","low" = "chartreuse3"),
                     labels = c( "high","medium","low"))+
-      theme(legend.position="bottom", legend.box = "horizontal") +
-        ylab("")+
-        xlab ("") +
-        ggtitle ("\n")+
-        
+  theme(legend.position="bottom", legend.box = "horizontal") +
+  ylab("")+
+  xlab ("") +
+  ggtitle ("\n")+
   pres_theme +
-theme(legend.title=element_blank()) 
+  theme(legend.title=element_blank()) 
 ```
 
 ```{r funnel plots}
 # can add levels, xlab, shade, yaxis, pch, xlim, ylim, main,legend,refline, etc options to modify the funnel plot for desired design.
-funnel(overall, 
-       level=c(90, 95, 99), xlab = "Hedge's g",
+fun_plot = funnel(overall, 
+       level=c(90, 95, 99), xlab = "Effect size (g)",
        shade=c("lightgrey", "cadetblue1", "lightblue"),
        yaxis = 'seinv',pch = 1, xlim=c(-4.5,4.5),ylim =c(1,6), 
        main = "",refline= -.06,
        back = "white",
        hlines = "lightgrey")
+```
+```{r}
+library(patchwork)
+(es_plot | QA )
+
+myPlotList = list(es_plot, fun_plot, QA)
+library("gridExtra")
+do.call(grid.arrange,  myPlotList)
+grid.arrange(es_plot,fun_plot,QA)
+
 ```
 
