@@ -26,6 +26,7 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=TRUE,
   datac$ci <- datac$se * ciMult
   return(datac) }
 
+# customize themes for plotting
 pres_theme <- theme(    
   panel.background    = element_blank(),            #   control the major gridlines 
   panel.grid.major.y  = element_line(),             #   suppress the vertical grid lines
@@ -207,8 +208,6 @@ anova(motor, btt = 1:3)
 anova(motor,L = c(0,1,-1))
 ```
 
-
-
 ```{r Interactions}
 # Frequency X Timing interaction 
 
@@ -284,12 +283,7 @@ anova(timingintensity, L = c(0,0,0,0,0))
 mods_list = c("compare","retrievaltype","onoffmoderator","freqmoderator","hemimod","moderatorpfcpcc","memorymod","motor")
 sapply(mods_list, variance_at_levels,esv = estimated.sampling.variance)
 
-
 ```
- 
-
-
-
 
 ```{r}
 # create modified figure 5
