@@ -7,319 +7,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-# Code modified from Assink and Wibbelink, 2016
-```
-
-```{r}
-rm(list=ls()) # clear the workspace of all data objects
-ls() # list number of data objects in the workspace
-# load packages may need to install depending on computer
-library(Hmisc)
-library(ggplot2)
-library(car)
-library(psych)
-library(plyr)
-library(metafor)
-#may need to change directory
-#setwd("") 
-
-#load data 
-test = read.csv('ESOSF.csv', header = T, na.strings=c("","NA"))
-```
-
-```{r overall model}
-test$effectsizeID=factor(test$effectsizeID)
-test$Study=factor(test$Study)
-
-overall <- rma.mv(test$hedge, test$Sampling.variance, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data = test)
-summary(overall)
-```
-
-```{r Check model fit}
-# Build a two-level model without within-study variance.
- 
-modelnovar2 <- rma.mv(test$hedge, test$Sampling.variance, random = list(~ 1 | Study/effectsizeID),
-sigma2=c(0,NA), tdist=TRUE, data=test)
-
-# Perform a likelihood-ratio-test to determine the
-# significance of the within-study variance.
-anova(overall,modelnovar2)
-```
-```{r check model fit}
-# Build a two-level model without between-study variance;
-# Perform a likelihood-ratio-test to determine the
-# significance of the between-study variance.
-
-modelnovar3 <- rma.mv(test$hedge, test$Sampling.variance, random = list(~ 1 | Study/effectsizeID),
-sigma2=c(NA,0), tdist=TRUE, data=test)
-
-anova(overall,modelnovar3)
-```
-```{r Determine how the total variance is distributed over the three levels}
-
-# Need to run the models that correspond to the moderator variables prior to this step. 
-
-#overall model. Print the results in percentages on screen.
-test$hedge
-n <- length(test$Sampling.variance)
-list.inverse.variances <- 1 / (test$Sampling.variance)
-sum.inverse.variances <- sum(list.inverse.variances)
-squared.sum.inverse.variances <- (sum.inverse.variances) ^ 2
-list.inverse.variances.square <- 1 / (test$Sampling.variance^2)
-sum.inverse.variances.square <-sum(list.inverse.variances.square)
-numerator <- (n - 1) * sum.inverse.variances
-denominator <- squared.sum.inverse.variances - sum.inverse.variances.square
-estimated.sampling.variance <- numerator / denominator
-
-I2_1 <- (estimated.sampling.variance) / (overall$sigma2[1] + overall$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (overall$sigma2[1]) / (overall$sigma2[1] + overall$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (overall$sigma2[2]) / (overall$sigma2[1] + overall$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-
-```
-
-
-```{r Check moderators}
-# check Control comparison moderator
-compare <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Control.comparison-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(compare, digits=3)
-anova(compare, btt=1:4)
-
-#In order to investigate specific comparisons modify L = C()
-anova(compare, L=c(1,0,0,-1))
-
-#Check Retrieval Type
-retrievaltype <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Retrieval-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(retrievaltype, digits=3)
-anova(retrievaltype, btt=1:2)
-
-#check online offline moderator
-
-onoffmoderator <- rma.mv(test$hedge, test$Sampling.variance, mods = ~Simulation.timing-1,random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(onoffmoderator, digits=3)
-anova(onoffmoderator, btt=1:2)
-
-#check frequency moderator
-
-freqmoderator <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Frequency-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(freqmoderator, digits=3)
-anova(freqmoderator, btt=1:6)
-#modify L= C() for specific comparisons of interest
-anova(freqmoderator, L=c(0,0,0,0,1,-1))
-
-#check hemisphere moderator
-
-hemimod <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Hemisphere-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(hemimod, digits=3)
-anova(hemimod, btt=1:2)
-
-#check memory process stimulated
-
-memorymod <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Memorystage-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, na.omit = TRUE,  data=test)
-summary(memorymod, digits=3)
-anova(memorymod, btt=1:2)
-
-#check for bias as an extension of eggars. 
-egg <- rma.mv(test$hedge, test$Sampling.variance, mod = ~ SE-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data = test)
-summary(egg, digits = 3)
-
-#check cortical region 
-
-moderatorpfcpcc <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Cortical.region-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(moderatorpfcpcc, digits=3)
-anova(moderatorpfcpcc, btt=1:2)
-
-# check motor threshold 
-motor <- rma.mv(test$hedge, test$Sampling.variance, mods = ~ Intensity-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(motor, digits=3)
-anova(motor, btt=1:3)
-#modify L = c() for specific comparisons
-anova(motor,L=c(0,1,-1))
-```
-
-
-
-```{r Interactions}
-# Frequency X Timing interaction 
-
-onoffFreqinteraction <- rma.mv(test$hedge, test$Sampling.variance, mods = ~  Frequency:Simulation.timing-1 , random = list(~1 | effectsizeID, ~ 1 | Study), tdist=TRUE, data=test)
-summary(onoffFreqinteraction,digits =3)
-anova(onoffFreqinteraction, btt=1:9)
-
-anova(onoffFreqinteraction, L=c(-1,0,0,0,1,0,0,0,0)) # on vs off for 1 hz
-anova(onoffFreqinteraction, L=c(0,0,0,-1,0,0,0,0,1)) # on vs off for 20 hz
-# online comparisons 
-anova(onoffFreqinteraction, L=c(0,0,0,0,1,-1,0,0,0)) # one vs five
-anova(onoffFreqinteraction, L=c(0,0,0,0,1,0,0,-1,0))# one vs ten
-anova(onoffFreqinteraction, L=c(0,0,0,0,1,0,0,0,-1))# one vs twenty
-anova(onoffFreqinteraction, L=c(0,0,0,0,1,0,-1,0,0)) #one vs iTBS
-
-anova(onoffFreqinteraction, L=c(0,0,0,0,0,1,0,-1,0)) # five vs ten
-anova(onoffFreqinteraction, L=c(0,0,0,0,0,1,0,0,-1))# five vs twenty
-anova(onoffFreqinteraction, L=c(0,0,0,0,0,1,-1,0,0))# five vs iTBS
-anova(onoffFreqinteraction, L=c(0,0,0,0,0,0,0,1,-1))# ten vs twenty
-anova(onoffFreqinteraction, L=c(0,0,0,0,0,0,-1,1,0))# ten vs iTBS
-anova(onoffFreqinteraction, L=c(0,0,0,0,0,0,-1,0,1))# twenty vs iTBS
-
-# offline comparisons 
-anova(onoffFreqinteraction, L=c(1,0,0,-1,0,0,0,0,0)) # 1 vs 20
-anova(onoffFreqinteraction, L=c(1,0,-1,0,0,0,0,0,0)) # 1 vs itbs
-anova(onoffFreqinteraction, L=c(1,-1,0,0,0,0,0,0,0)) # 1 vs cTBS
-anova(onoffFreqinteraction, L=c(0,0,-1,1,0,0,0,0,0)) # 20 hz vs itbs
-anova(onoffFreqinteraction, L=c(0,-1,0,1,0,0,0,0,0)) # 20 vs cTBS
-anova(onoffFreqinteraction, L=c(0,-1,1,0,0,0,0,0,0)) #iTBS vs cTBS
-
-# Frequency X Motor threshold intensity 
-
-freqxmti <- rma.mv(test$hedge, test$Sampling.variance, mods = ~Frequency:Intensity-1 , random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(freqxmti, digits=3)
-anova(onoffFreqinteraction, btt=1:14)
-# need to modify L = c() for comparisons of interest
-anova(freqxmti, L=c(0,0,0,0,0,0,0,0,0,0,0,0,0,0))
-
-# Memory Process Stimulated  X Hemisphere interaction
-
-memoryprocessesmod <- rma.mv(test$hedge, test$Sampling.variance, mods = ~Memorystage:Hemisphere-1 , random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(memoryprocessesmod, digits=3)
-
-anova(memoryprocessesmod, L=c(-1,0,1,0))
-anova(memoryprocessesmod, L=c(0,1,0,-1))
-anova(memoryprocessesmod, L=c(1,-1,0,0))
-anova(memoryprocessesmod, L=c(0,0,-1,1))
-
-# Cortical region X memory process interaction.
-
-moderatorinteraction <- rma.mv(test$hedge, test$Sampling.variance, mods = ~  Retrieval:Cortical.region-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(moderatorinteraction,digits =3)
-anova(moderatorinteraction, L=c(1,0,-1,0))
-anova(moderatorinteraction, L=c(0,1,0,-1))
-anova(moderatorinteraction, L=c(1,-1,0,0))
-anova(moderatorinteraction, L=c(0,0,1,-1))
-
-# Stimulation timing X Motor threshold Intensity interaction
-timingintensity <- rma.mv(test$hedge, test$Sampling.variance, mods = ~  Simulation.timing:Intensity-1, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data=test)
-summary(timingintensity,digits =3)
-#Modify L = c() for comparisons
-anova(timingintensity, L=c(0,0,0,0,0))
-```
-
-```{r sensitivity analysis}
-x <- cooks.distance(overall)
-
-plot(x,type = "o", pch =19)
-
-#dfb =dfbeta(overall)
-#hat = hatvalues(overall)
-```
- 
-```{r}
-# Control comparison
-
-I2_1 <- (estimated.sampling.variance) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (compare$sigma2[1]) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (compare$sigma2[2]) / (compare$sigma2[1] + compare$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Retrieval type
-I2_1 <- (estimated.sampling.variance) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (retrievaltype$sigma2[1]) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (retrievaltype$sigma2[2]) / (retrievaltype$sigma2[1] + retrievaltype$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#stimulation timing
-
-I2_1 <- (estimated.sampling.variance) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (onoffmoderator$sigma2[1]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (onoffmoderator$sigma2[2]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Frequency 
-
-I2_1 <- (estimated.sampling.variance) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (freqmoderator$sigma2[1]) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (freqmoderator$sigma2[2]) / (freqmoderator$sigma2[1] + freqmoderator$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-# Hemisphere
-
-I2_1 <- (estimated.sampling.variance) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (hemimod$sigma2[1]) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (hemimod$sigma2[2]) / (hemimod$sigma2[1] + hemimod$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Cortical Region
-
-I2_1 <- (estimated.sampling.variance) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (moderatorpfcpcc$sigma2[1]) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (moderatorpfcpcc$sigma2[2]) / (moderatorpfcpcc$sigma2[1] + moderatorpfcpcc$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-# memory process stimulated
-
-I2_1 <- (estimated.sampling.variance) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (memorymod$sigma2[1]) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (memorymod$sigma2[2]) / (memorymod$sigma2[1] + memorymod$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-
-#Motor threshold intensity
-
-I2_1 <- (estimated.sampling.variance) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
-I2_2 <- (motor$sigma2[1]) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
-I2_3 <- (motor$sigma2[2]) / (motor$sigma2[1] + motor$sigma2[2] + estimated.sampling.variance)
-amountvariancelevel1 <- I2_1 * 100
-amountvariancelevel2 <- I2_2 * 100
-amountvariancelevel3 <- I2_3 * 100
-amountvariancelevel1
-amountvariancelevel2
-amountvariancelevel3
-```
- 
-
 ```{r Standard error function}
 #can modidify for design preferences
-library(extrafont)
 
 summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=TRUE,
                       conf.interval=.95, .drop=TRUE) 
@@ -338,23 +27,268 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=TRUE,
   return(datac) }
 
 pres_theme <- theme(    
-  panel.background    = element_blank() ,            #   control the major gridlines 
-  panel.grid.major.y  = element_line() ,             #   suppress the vertical grid lines
-  panel.grid.major.x  = element_blank() ,            #   suppress the minor grid lines
-  panel.grid.minor    = element_blank() ,            #   add axes
-  axis.text           = element_text( size=12, family="Times", colour='black'),   #   tick labels' size, font & color. 
-  axis.line.x         = element_line( size=.8),   #   adjust the axis ticks
-  axis.line.y         = element_line( size=.8),
-  axis.ticks          = element_line( size=.8, colour='black'),   #   axis colors and thickness 
-  axis.title.y        = element_text( angle=90, vjust= 1.5, hjust=.47,    
-                                      size=20, family="Times"),  
-  axis.title.x        = element_text( vjust=-.5, hjust = .505,                    
-                                      size=20, family="Times "),                   
-  plot.title = element_text (size=20, family="Times", colour='black', face = 'bold'),
-  legend.text = element_text(size=16, family="Times"),
-  legend.title = element_text(size=14, family="Times", face = 'bold')
-  )
+  panel.background    = element_blank(),            #   control the major gridlines 
+  panel.grid.major.y  = element_line(),             #   suppress the vertical grid lines
+  panel.grid.major.x  = element_blank(),            #   suppress the minor grid lines
+  panel.grid.minor    = element_blank(),            #   add axes
+  axis.text           = element_text(size = 16, family = "Times", colour = 'black'),   #   tick labels' size, font & color. 
+  axis.line.x         = element_line(size = .8),   #   adjust the axis ticks
+  axis.line.y         = element_line(size = .8),
+  axis.ticks          = element_line(size = .8, colour = 'black'),   #   axis colors and thickness 
+  axis.title.y        = element_text(angle = 90, vjust = 1.5, hjust = .47,    
+                                      size = 20, family = "Times"),  
+  axis.title.x        = element_text(vjust = -.5, hjust = .505,                    
+                                      size = 20, family = "Times"), 
+  axis.text.y         = element_text(angle = 0),
+  plot.title          = element_text(size = 20, family = "Times", colour = 'black', face = 'bold'),
+  legend.text         = element_text(size = 16, family = "Times"),
+  legend.title       = element_text(size = 14, family = "Times", face = 'bold')
+)
 ```
+
+```{r}
+# create function to to get variances for different models 
+# input the estimated sampling variance and model.
+
+variance_at_levels <- function(model_input,esv) {
+  model_input = eval(parse(text=model_input))
+  I2_1 <- esv                     / (model_input$sigma2[1] + model_input$sigma2[2] + esv)
+  I2_2 <- (model_input$sigma2[1]) / (model_input$sigma2[1] + model_input$sigma2[2] + esv)
+  I2_3 <- (model_input$sigma2[2]) / (model_input$sigma2[1] + model_input$sigma2[2] + esv)
+  
+  new_variance_dictionary <- c(
+    "I2_1" = I2_1,
+    "I2_2" = I2_2,
+    "I2_3" = I2_3
+  )
+  
+  return(new_variance_dictionary)
+}
+```
+
+
+```{r}
+rm(list=ls()) # clear the work space of all data objects
+ls() # list number of data objects in the work space
+
+# load packages may need to install depending on computer
+library(Hmisc)
+library(ggplot2)
+library(car)
+library(psych)
+library(plyr)
+library(metafor)
+
+# set directory 
+#setwd("") 
+
+#load data 
+df_meta <- read.csv('ESOSF.csv', header = T, na.strings=c("","NA"))
+```
+
+```{r overall model}
+
+df_meta$effectsizeID <- factor(df_meta$effectsizeID)
+df_meta$Study <- factor(df_meta$Study)
+
+overall <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, random = list(~ 1 | Study/effectsizeID), tdist=TRUE, data = df_meta)
+summary(overall)
+```
+
+```{r Check model fit}
+# Build a two-level model without within-study variance.
+ 
+modelnovar2 <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, random = list(~ 1 | Study/effectsizeID),
+                      sigma2 = c(0,NA), tdist = TRUE, data = df_meta)
+
+# Perform a likelihood-ratio-test to determine the
+# significance of the within-study variance.
+anova(overall,modelnovar2)
+```
+```{r check model fit}
+# Build a two-level model without between-study variance;
+# Perform a likelihood-ratio-test to determine the
+# significance of the between-study variance.
+
+modelnovar3 <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, random = list(~ 1 | Study/effectsizeID), 
+                      sigma2 = c(NA,0), tdist = TRUE, data = df_meta)
+
+anova(overall,modelnovar3)
+```
+
+```{r Determine how the total variance is distributed over the three levels}
+
+# Need to run the models that correspond to the moderator variables prior to this step. 
+ #overall model. Print the results in percentages on screen.
+df_meta$hedge
+n                             <- length(df_meta$Sampling.variance)
+list.inverse.variances        <- 1 / (df_meta$Sampling.variance)
+sum.inverse.variances         <- sum(list.inverse.variances)
+squared.sum.inverse.variances <- (sum.inverse.variances) ^ 2
+list.inverse.variances.square <- 1 / (df_meta$Sampling.variance^2)
+sum.inverse.variances.square  <- sum(list.inverse.variances.square)
+numerator                     <- (n - 1) * sum.inverse.variances
+denominator                   <- squared.sum.inverse.variances - sum.inverse.variances.square
+estimated.sampling.variance   <- numerator / denominator
+
+I2_1                          <- (estimated.sampling.variance) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
+I2_2                          <- (onoffmoderator$sigma2[1]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
+I2_3                          <- (onoffmoderator$sigma2[2]) / (onoffmoderator$sigma2[1] + onoffmoderator$sigma2[2] + estimated.sampling.variance)
+amountvariancelevel1          <- I2_1 * 100
+amountvariancelevel2          <- I2_2 * 100
+amountvariancelevel3          <- I2_3 * 100
+```
+
+
+```{r Check moderators}
+# check Control comparison moderator
+compare <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Control.comparison-1, random = list(~ 1 | Study/effectsizeID),
+                  tdist = TRUE, data = df_meta)
+summary(compare, digits = 3)
+anova(compare, btt = 1:4)
+
+#In order to investigate specific comparisons modify L = C()
+anova(compare, L = c(1,0,0,-1))
+
+#Check Retrieval Type
+retrievaltype <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Retrieval-1, random = list(~ 1 | Study/effectsizeID),
+                        tdist = TRUE, data = df_meta)
+summary(retrievaltype, digits = 3)
+anova(retrievaltype, btt = 1:2)
+
+#check online offline moderator
+
+onoffmoderator <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~Simulation.timing-1,random = list(~ 1 | Study/effectsizeID),
+                         tdist = TRUE, data = df_meta)
+summary(onoffmoderator, digits = 3)
+anova(onoffmoderator, btt = 1:2)
+
+#check frequency moderator
+
+freqmoderator <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Frequency-1, random = list(~ 1 | Study/effectsizeID),
+                        tdist = TRUE, data = df_meta)
+summary(freqmoderator, digits = 3)
+anova(freqmoderator, btt = 1:6)
+#modify L= C() for specific comparisons of interest
+anova(freqmoderator, L = c(0,0,0,0,1,-1))
+
+#check hemisphere moderator
+
+hemimod <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Hemisphere-1, random = list(~ 1 | Study/effectsizeID),
+                  tdist = TRUE, data = df_meta)
+summary(hemimod, digits = 3)
+anova(hemimod, btt = 1:2)
+
+#check memory process stimulated
+
+memorymod <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Memorystage-1, random = list(~ 1 | Study/effectsizeID), 
+                    tdist = TRUE, na.omit = TRUE,  data = df_meta)
+summary(memorymod, digits = 3)
+anova(memorymod, btt = 1:2)
+
+#check for bias as an extension of eggars. 
+egg <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mod = ~ SE-1, random = list(~ 1 | Study/effectsizeID),
+              tdist = TRUE, data = df_meta)
+summary(egg, digits = 3)
+
+#check cortical region 
+
+moderatorpfcpcc <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Cortical.region-1, random = list(~ 1 | Study/effectsizeID),
+                          tdist = TRUE, data = df_meta)
+summary(moderatorpfcpcc, digits = 3)
+anova(moderatorpfcpcc, btt = 1:2)
+
+# check motor threshold 
+motor <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~ Intensity-1, random = list(~ 1 | Study/effectsizeID), 
+                tdist = TRUE, data = df_meta)
+summary(motor, digits = 3)
+anova(motor, btt = 1:3)
+#modify L = c() for specific comparisons
+anova(motor,L = c(0,1,-1))
+```
+
+
+
+```{r Interactions}
+# Frequency X Timing interaction 
+
+onoffFreqinteraction <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~  Frequency:Simulation.timing-1,
+                               random = list(~1 | effectsizeID, ~ 1 | Study), tdist = TRUE, data = df_meta)
+summary(onoffFreqinteraction,digits = 3)
+anova(onoffFreqinteraction, btt = 1:9)
+
+anova(onoffFreqinteraction, L = c(-1,0,0,0,1,0,0,0,0)) # on vs off for 1 hz
+anova(onoffFreqinteraction, L = c(0,0,0,-1,0,0,0,0,1)) # on vs off for 20 hz
+# online comparisons 
+anova(onoffFreqinteraction, L = c(0,0,0,0,1,-1,0,0,0)) # one vs five
+anova(onoffFreqinteraction, L = c(0,0,0,0,1,0,0,-1,0)) # one vs ten
+anova(onoffFreqinteraction, L = c(0,0,0,0,1,0,0,0,-1)) # one vs twenty
+anova(onoffFreqinteraction, L = c(0,0,0,0,1,0,-1,0,0)) #one vs iTBS
+
+anova(onoffFreqinteraction, L = c(0,0,0,0,0,1,0,-1,0)) # five vs ten
+anova(onoffFreqinteraction, L = c(0,0,0,0,0,1,0,0,-1)) # five vs twenty
+anova(onoffFreqinteraction, L = c(0,0,0,0,0,1,-1,0,0)) # five vs iTBS
+anova(onoffFreqinteraction, L = c(0,0,0,0,0,0,0,1,-1)) # ten vs twenty
+anova(onoffFreqinteraction, L = c(0,0,0,0,0,0,-1,1,0)) # ten vs iTBS
+anova(onoffFreqinteraction, L = c(0,0,0,0,0,0,-1,0,1)) # twenty vs iTBS
+
+# offline comparisons 
+anova(onoffFreqinteraction, L = c(1,0,0,-1,0,0,0,0,0)) # 1 vs 20
+anova(onoffFreqinteraction, L = c(1,0,-1,0,0,0,0,0,0)) # 1 vs itbs
+anova(onoffFreqinteraction, L = c(1,-1,0,0,0,0,0,0,0)) # 1 vs cTBS
+anova(onoffFreqinteraction, L = c(0,0,-1,1,0,0,0,0,0)) # 20 hz vs itbs
+anova(onoffFreqinteraction, L = c(0,-1,0,1,0,0,0,0,0)) # 20 vs cTBS
+anova(onoffFreqinteraction, L = c(0,-1,1,0,0,0,0,0,0)) #iTBS vs cTBS
+
+# Frequency X Motor threshold intensity 
+
+freqxmti <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~Frequency:Intensity-1, 
+                   random = list(~ 1 | Study/effectsizeID), tdist = TRUE, data = df_meta)
+summary(freqxmti, digits = 3)
+anova(onoffFreqinteraction, btt = 1:14)
+# need to modify L = c() for comparisons of interest
+anova(freqxmti, L = c(0,0,0,0,0,0,0,0,0,0,0,0,0,0))
+
+# Memory Process Stimulated  X Hemisphere interaction
+
+memoryprocessesmod <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~Memorystage:Hemisphere-1,
+                             random = list(~ 1 | Study/effectsizeID), tdist = TRUE, data = df_meta)
+summary(memoryprocessesmod, digits = 3)
+
+anova(memoryprocessesmod, L = c(-1,0,1,0))
+anova(memoryprocessesmod, L = c(0,1,0,-1))
+anova(memoryprocessesmod, L = c(1,-1,0,0))
+anova(memoryprocessesmod, L = c(0,0,-1,1))
+
+# Cortical region X memory process interaction.
+
+moderatorinteraction <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~  Retrieval:Cortical.region-1,
+                               random = list(~ 1 | Study/effectsizeID), tdist = TRUE, data = df_meta)
+summary(moderatorinteraction,digits =3)
+anova(moderatorinteraction, L = c(1,0,-1,0))
+anova(moderatorinteraction, L = c(0,1,0,-1))
+anova(moderatorinteraction, L = c(1,-1,0,0))
+anova(moderatorinteraction, L = c(0,0,1,-1))
+
+# Stimulation timing X Motor threshold Intensity interaction
+timingintensity <- rma.mv(df_meta$hedge, df_meta$Sampling.variance, mods = ~  Simulation.timing:Intensity-1, 
+                          random = list(~ 1 | Study/effectsizeID), tdist = TRUE, data = df_meta)
+summary(timingintensity,digits = 3)
+#Modify L = c() for comparisons
+anova(timingintensity, L = c(0,0,0,0,0))
+```
+
+
+```{r}
+# 
+mods_list = c("compare","retrievaltype","onoffmoderator","freqmoderator","hemimod","moderatorpfcpcc","memorymod","motor")
+sapply(mods_list, variance_at_levels,esv = estimated.sampling.variance)
+
+
+```
+ 
+
+
 
 
 ```{r}
@@ -363,70 +297,73 @@ pres_theme <- theme(
 
 library(ggplot2)
 library(metafor)
-esmean = -.06
-dat = test
-dat$cite = NA
-dat$cite = paste(dat$Author,dat$Date)
-negmean = -.43
-dat$cite = reorder(dat$cite, dat$hedge, FUN = mean)
-options(stringsAsFactors = FALSE)
-N = dat$N
-dat$beta <- as.numeric(as.character(dat$hedge))
 
-es_plot=ggplot(data=dat,aes(x=beta,y=cite))+
-  geom_point(aes(size = as.factor(N)),color="lightblue3",shape=19,alpha = .5)+
-  geom_vline(xintercept=esmean,linetype="dashed")+
-  scale_x_continuous("Effect size\n", breaks=c(-4,-3,-2,-1,0,1,2,3,4), expand = c(0, 0),limits = c(-4.5,4.5))+
-  scale_size_manual(labels = c("10-19","20-29","30-39","40-49","50-59","60-69"),values =c(3,4,5,6,7,8))+
+esmean            <- -.06 # estimate from overall model
+df_plot_data      <- df_meta
+df_plot_data$cite <- NA
+df_plot_data$cite <- paste(df_plot_data$Author,df_plot_data$Date)
+df_plot_data$cite <- reorder(df_plot_data$cite, df_plot_data$hedge, FUN = mean)
+#options(stringsAsFactors = FALSE)
+N                 <- df_plot_data$N
+df_plot_data$beta <- as.numeric(as.character(df_plot_data$hedge))
+
+png(filename="bench_query_sort.png", width=600, height=600)
+png(filename="esplot.png", width=500, height=800)
+
+es_plot = ggplot(data = df_plot_data,aes(x = beta,y = cite)) +
+  geom_point(aes(size = as.factor(N)),color = "lightblue3",shape = 19,alpha = .5) +
+  geom_vline(xintercept = esmean,linetype = "dashed") +
+  scale_x_continuous("Effect size\n", breaks = c(-4,-3,-2,-1,0,1,2,3,4), expand = c(0, 0), limits = c(-4.5,4.5))+
+  scale_size_manual(labels = c("10-19","20-29","30-39","40-49","50-59","60-69"), values = c(3,4,5,6,7,8))+
   ylab("Study\n")+
   ggtitle ("\n")+
   theme(legend.position="bottom") +
   pres_theme+
   labs(size = "Sample size")
-es_plot
+es_plot 
 
-                   
+dev.off()
 ```
 
 
 ```{r quality assessment }
-test = read.csv('Quality.csv', header = T, na.strings=c("","NA"))
+df_quality      <- read.csv('Quality.csv', header = T, na.strings=c("","NA"))
+df_quality$risk <- factor(df_quality$risk, levels = c("high", "medium", "low"))
 
-
-test$risk <- factor(test$risk, levels = c("high", 
-                                          "medium", "low"))
-
-QA = ggplot(data = test, aes(x = Levels, y = Score, fill = risk))+ 
+QA <- ggplot(data = df_quality, aes(x = Levels, y = Score, fill = risk))+ 
   coord_flip() + 
-  geom_bar(stat="identity") +
+  geom_bar(stat = "identity") +
   scale_fill_manual(values = c("high"="red2","medium"="yellow2","low" = "chartreuse3"),
                     labels = c( "high","medium","low"))+
-  theme(legend.position="bottom", legend.box = "horizontal") +
+  theme(legend.position = "bottom", legend.box = "horizontal") +
   ylab("")+
   xlab ("") +
   ggtitle ("\n")+
   pres_theme +
   theme(legend.title=element_blank()) 
+QA
 ```
 
 ```{r funnel plots}
 # can add levels, xlab, shade, yaxis, pch, xlim, ylim, main,legend,refline, etc options to modify the funnel plot for desired design.
-fun_plot = funnel(overall, 
-       level=c(90, 95, 99), xlab = "Effect size (g)",
-       shade=c("lightgrey", "cadetblue1", "lightblue"),
-       yaxis = 'seinv',pch = 1, xlim=c(-4.5,4.5),ylim =c(1,6), 
-       main = "",refline= -.06,
+fun_plot <- funnel(overall, 
+       level = c(90, 95, 99), xlab = "Effect size (g)",
+       shade = c("lightgrey", "cadetblue1", "lightblue"),
+       yaxis = 'seinv',
+       pch = 1, xlim = c(-4.5,4.5),ylim = c(1,6), 
+       main = "",
+       refline = -.06,
        back = "white",
        hlines = "lightgrey")
 ```
+
 ```{r}
 library(patchwork)
 (es_plot | QA )
 
-myPlotList = list(es_plot, fun_plot, QA)
+myPlotList <- list(es_plot, fun_plot, QA)
 library("gridExtra")
 do.call(grid.arrange,  myPlotList)
 grid.arrange(es_plot,fun_plot,QA)
-
 ```
 
