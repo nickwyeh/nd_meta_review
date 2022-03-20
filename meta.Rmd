@@ -52,7 +52,9 @@ pres_theme <- theme(
 # input the estimated sampling variance and model.
 
 variance_at_levels <- function(model_input,esv) {
+  
   model_input = eval(parse(text=model_input))
+  
   I2_1 <- esv                     / (model_input$sigma2[1] + model_input$sigma2[2] + esv)
   I2_2 <- (model_input$sigma2[1]) / (model_input$sigma2[1] + model_input$sigma2[2] + esv)
   I2_3 <- (model_input$sigma2[2]) / (model_input$sigma2[1] + model_input$sigma2[2] + esv)
