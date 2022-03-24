@@ -3,7 +3,7 @@
 ##### Main findings:
 * 
 
-<p align = "center"> <img src="https://github.com/nickwyeh/nd_meta_review/blob/main/figures/esplot.png" width="600"> </p> 
+<p align = "center"> <img src="https://github.com/nickwyeh/nd_meta_review/blob/main/figures/esplot_biasplot.png" width="600"> </p> 
 
 
  
