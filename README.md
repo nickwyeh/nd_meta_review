@@ -4,7 +4,7 @@
 ##### Main findings:
 * Analyses revealed generally more beneficial effects of 1-Hz rTMS vs. other frequencies on episodic memory. Moderation analyses revealed complex interactions as online 20-Hz rTMS protocols led to negative effects, while offline 20-Hz rTMS led to enhancing effects. There was also an interaction between stimulation intensity and frequency as 20-Hz rTMS had more negative effects when applied below- vs. at-motor threshold. Conversely, 1-Hz rTMS had more beneficial effects than other frequencies when applied below- vs. at- or above-motor threshold.
 
-<p align = "center"> <img src="https://github.com/nickwyeh/nd_meta_review/blob/main/figures/esplot_biasplot.png" width="600"> </p> 
+<p align = "center"> <img src="https://github.com/nickwyeh/nd_meta_review/blob/main/figures/esplot_biasplot.png" width="800"> </p> 
 
 
  
